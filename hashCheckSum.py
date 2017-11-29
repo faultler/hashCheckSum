@@ -58,12 +58,12 @@ run everything!!!
 
 #1
 tempBool = True
-while tempBool = True:
+while tempBool == True:	# == is a check for equivalence, = is a declaration
 	directoryInput = input("Hey buddy! Enter the path to the main directory with the 24 subdirectories: \n")
 	print("\n")
 	confirmation = input("Is this correct: \n" + directoryInput + "\n y/n:   ")
-	if confirmation = "Y" or "y" or "YES" or "yes" or "Yes" or "yES":
-		boolTemp = False
+	if confirmation == "y" or "Y" or "yes" or "YES" or "Yes" or "yES":
+		tempBool = False
 		
 #2
 subdirectoryList = createSubdirectories(directoryInput)
