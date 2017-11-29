@@ -26,14 +26,6 @@ afterwords, it will return nothing to this main program
 def runCommand(commandLine):
 	process = subprocess,Popen(commandLine)
 	process.wait()
-
-############################################################
-'''
-this section will take input from the user regarding directory paths, and text file naming
-'''
-directorInput = input("Hey buddy! Enter the path to the main directory with the 24 subdirectories: \n")
-print("\n")
-
 ############################################################
 '''
 create list of all subdirectories
@@ -56,4 +48,33 @@ def createSubdirectories(mainDirectory):
 ############################################################
 '''
 run everything!!!
+
+1. take user input of the mainDirectory
+2. run createSubdirectories, which will give a list of all the folders in the mainDirectory
+3. create a for statement to iterate through the elements of the list created in stem 2
+4. upon each iteration of for statement in step 3; createCommandLine within runCommand.
+	as stated in run command's final line, it will wait for the mk5deep to finish before proceeding
 '''
+
+#1
+tempBool = True
+while tempBool = True:
+	directoryInput = input("Hey buddy! Enter the path to the main directory with the 24 subdirectories: \n")
+	print("\n")
+	confirmation = input("Is this correct: \n" + directoryInput + "\n y/n:   ")
+	if confirmation = "Y" or "y" or "YES" or "yes" or "Yes" or "yES":
+		boolTemp = False
+		
+#2
+subdirectoryList = createSubdirectories(directoryInput)
+
+#3
+for element in subdirectoryList:
+	#4
+	runCommand(createCommandLine(element))
+	
+	
+	
+	
+	
+	
