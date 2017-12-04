@@ -11,8 +11,8 @@ It will then find the only .md5 text file used in that directory using the Pytho
 the function will return a single string that will later be used in a MS comment prompt
 '''
 def createCommandLine(subdirectoryPath):
-	tempStr = subdirectoryPath + "\*.md5"	#It is assumed that there is only one .md5 file in the subdirectory
-	textFilePath = glob.glob(tempStr)[0]	#glob.glob creates list of all .md5 file paths. since there is only one file, I am taking the first element of the list [0]
+	tempStr = subdirectoryPath + "\*md5sum.txt"	#It is assumed that there is only one .md5 file in the subdirectory
+	textFilePath = glob.glob(tempStr)[0]	#glob.glob creates list of all file paths with "md5sum.txt" since there is only one file, I am taking the first element of the list [0]
 	stringToReturn = r"md5deep -r -x " + textFilePath + r" -e " + subdirectoryPath		# spaces in quotes are necessary
 	return stringToReturn
 
@@ -24,7 +24,7 @@ the input string will be run in a MS command terminal and wait for the command t
 afterwords, it will return nothing to this main program
 '''
 def runCommand(commandLine):
-	process = subprocess,Popen(commandLine)
+	process = subprocess.Popen(commandLine)
 	process.wait()
 ############################################################
 '''
