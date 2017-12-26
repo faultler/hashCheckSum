@@ -11,9 +11,9 @@ It will then find the only .md5 text file used in that directory using the Pytho
 the function will return a single string that will later be used in a MS comment prompt
 '''
 def createCommandLine(subdirectoryPath):
-	tempStr = subdirectoryPath + "\*md5sum.txt"	#It is assumed that there is only one .md5 file in the subdirectory
-	textFilePath = glob.glob(tempStr)[0]	#glob.glob creates list of all file paths with "md5sum.txt" since there is only one file, I am taking the first element of the list [0]
-	stringToReturn = r"md5deep -r -x " + textFilePath + r" -e " + subdirectoryPath		# spaces in quotes are necessary
+	tempStr = subdirectoryPath + "\*md5sum.txt"	#the symbol '*' acts as a wildcard
+	textFilePath = glob.glob(tempStr)[0]	#glob.glob creates list of all file paths with "md5sum.txt". It is assumed that there is only one .md5 file, so I am taking the first element of the list [0]
+	stringToReturn = r"md5deep -r -x " + textFilePath + r" -e " + subdirectoryPath		# spaces in quotes are necessary as this is a command to the MS terminal
 	return stringToReturn
 
 ############################################################
@@ -59,7 +59,7 @@ run everything!!!
 #1
 tempBool = True
 while tempBool == True:	# == is a check for equivalence, = is a declaration
-	directoryInput = input("Hey buddy! Enter the path to the main directory with the 24 subdirectories: \n")
+	directoryInput = input("Enter the path to the main directory with the 24 subdirectories: \n")
 	print("\n")
 	confirmation = input("Is this correct: \n" + directoryInput + "\n y/n:   ")
 	if confirmation == "y" or "Y" or "yes" or "YES" or "Yes" or "yES":
